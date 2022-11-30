@@ -10,7 +10,7 @@ experiments.
 import numpy as np
 import os
 
-import helper.wordnet_functions as wf
+from . import wordnet_functions as wf
 
 
 def compute_imagenet_indices_for_category(category):
