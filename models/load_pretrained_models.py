@@ -8,7 +8,13 @@ import torch
 import torchvision
 import torchvision.models
 from torch.utils import model_zoo
+from pdb import set_trace
 
+# Get the absolute path to the current .py file
+current_file_path = os.path.abspath(__file__)
+
+# Get the directory containing the current .py file
+current_dir_path = os.path.dirname(current_file_path)
 
 def load_model(model_name):
 
@@ -27,8 +33,9 @@ def load_model(model_name):
         print("Using the VGG-16 architecture.")
        
         # download model from URL manually and save to desired location
-        filepath = "./vgg16_train_60_epochs_lr0.01-6c6fcc9f.pth.tar"
-
+        # filepath = "./vgg16_train_60_epochs_lr0.01-6c6fcc9f.pth.tar"
+        os.path.join(current_dir_path, 'vgg16_train_60_epochs_lr0.01-6c6fcc9f.pth.tar')
+        
         assert os.path.exists(filepath), "Please download the VGG model yourself from the following link and save it locally: https://drive.google.com/drive/folders/1A0vUWyU6fTuc-xWgwQQeBvzbwi6geYQK (too large to be downloaded automatically like the other models)"
 
         model = torchvision.models.vgg16(pretrained=False)
@@ -41,8 +48,9 @@ def load_model(model_name):
         print("Using the AlexNet architecture.")
         
         # download model from URL manually and save to desired location
-        filepath = "./alexnet_train_60_epochs_lr0.001-b4aa5238.pth.tar"
-
+        # filepath = "./alexnet_train_60_epochs_lr0.001-b4aa5238.pth.tar"
+        filepath = os.path.join(current_dir_path, 'alexnet_train_60_epochs_lr0.001-b4aa5238.pth.tar')
+        
         assert os.path.exists(filepath), "Please download the AlexNet model yourself from the following link and save it locally: https://drive.google.com/drive/u/0/folders/1GnxcR6HUyPfRWAmaXwuiMdAMKlL1shTn"
         
         model = torchvision.models.alexnet(pretrained=False)
